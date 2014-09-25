@@ -1,0 +1,9 @@
+from spoonbrew/jdk:8.0,spoonbrew/jdk:7.65,maven:3.2.2,ant:1.9.4,wget
+cmd mkdir C:\JenkinsBuildSlave
+
+cmd copy .\run-prepare-and-run.bat C:\JenkinsBuildSlave\run-prepare-and-run.bat
+cmd copy .\run-agent.bat C:\JenkinsBuildSlave\run-agent.bat
+env JAVA_HOME="C:\Program Files (x86)\Java\jdk1.8.0"
+env SLAVE_HOME=C:\JenkinsBuildSlave
+
+startup file ("C:\JenkinsBuildSlave\run-prepare-and-run.bat")
