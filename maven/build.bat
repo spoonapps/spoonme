@@ -5,4 +5,4 @@ IF "%1" == "" (
    exit /b 1
 )
 set VERSION=%1
-%SPN% build --name=maven:%1 spoon.me
+%SPN% build --name=maven:%VERSION% spoon.me
