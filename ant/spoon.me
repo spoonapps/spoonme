@@ -1,7 +1,7 @@
 from spoonbrew/jdk:7.65
 using wget 7zip
 cmd echo Version is %VERSION%
-cmd %spn_wget% http://apache.mirror.cdnetworks.com/ant/binaries/apache-ant-%VERSION%-bin.zip -O ant.zip
+cmd %spn_wget% http://archive.apache.org/dist/ant/binaries/apache-ant-%VERSION%-bin.zip -O ant.zip
 cmd %spn_7z% x ant.zip -oC:\Ant\
 cmd xcopy /E C:\Ant\apache-ant-%VERSION%\* C:\Ant\*
 cmd del ant.zip
