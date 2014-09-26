@@ -1,0 +1,10 @@
+from scratch
+using wget 7zip
+cmd echo Version is %VERSION%
+cmd %spn_wget% http://dl.bintray.com/oneclick/rubyinstaller/ruby-%VERSION%-i386-mingw32.7z?direct -O ruby.7z
+cmd %spn_7z% x ruby.7z -oC:\
+
+
+env RUBY_HOME=C:\ruby-%VERSION%-i386-mingw32\
+
+env PATH=%PATH%;C:\ruby-%VERSION%-i386-mingw32\bin
