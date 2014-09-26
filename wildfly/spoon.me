@@ -1,0 +1,12 @@
+from spoonbrew/jdk:7.65
+using wget 7zip
+cmd echo Version is %VERSION%
+cmd %spn_wget% http://download.jboss.org/wildfly/%VERSION%/wildfly-%VERSION%.zip -O wildfly.zip
+cmd %spn_7z% x wildfly.zip -oC:\
+cmd del wildfly.zip
+
+env JAVA_HOME="C:\Program Files (x86)\Java\jdk1.7.0_65"
+env JBOSS_HOME=C:\wildfly-%VERSION%\
+env WILDFLY_HOME=C:\wildfly-%VERSION%\
+
+env PATH=%PATH%;C:\wildfly-%VERSION%\bin

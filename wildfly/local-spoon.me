@@ -1,0 +1,12 @@
+from spoonbrew/jdk:7.65
+cmd echo Version is %VERSION%
+cmd mkdir C:\Maven\
+cmd xcopy /E C:\Wildfly-SNAPSHOT\* .\dist\*
+
+
+env JAVA_HOME="C:\Program Files (x86)\Java\jdk1.7.0_65"
+env JBOSS_HOME=C:\Wildfly-SNAPSHOT\
+env WILDFLY_HOME=C:\Wildfly-SNAPSHOT\
+
+env PATH=%PATH%;C:\Wildfly-SNAPSHOT\bin
+startup file ("C:\Wildfly-SNAPSHOT\bin\domain.bat")
