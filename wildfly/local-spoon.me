@@ -3,10 +3,11 @@ cmd echo Version is %VERSION%
 cmd mkdir C:\Maven\
 cmd xcopy /E C:\Wildfly-SNAPSHOT\* .\dist\*
 
-
 env JAVA_HOME="C:\Program Files (x86)\Java\jdk1.7.0_65"
-env JBOSS_HOME=C:\Wildfly-SNAPSHOT\
-env WILDFLY_HOME=C:\Wildfly-SNAPSHOT\
+env JBOSS_HOME=C:\wildfly-%VERSION%
+env WILDFLY_HOME=C:\wildfly-%VERSION%
 
-env PATH=%PATH%;C:\Wildfly-SNAPSHOT\bin
-startup file ("C:\Wildfly-SNAPSHOT\bin\domain.bat")
+env PATH=%PATH%;C:\wildfly-%VERSION%\bin
+
+
+startup file %WILDFLY_HOME%\bin\standalone.bat
