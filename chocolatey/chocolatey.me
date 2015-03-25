@@ -10,7 +10,7 @@
 ###################################
 
 from microsoft/dotnet:4.0.3
-using python/python:3.4.1
+
 
 ###################################
 # Download and install
@@ -27,15 +27,11 @@ batch
   chocolatey update -y
   echo 1
 
-cmd chocolatey > output.txt & echo 1
-
-batch
-  echo import re >> getVersion.py
-  echo f = open('output.txt', 'r') >> getVersion.py
-  echo print(re.findall('Chocolatey v(\d*\.\d*\.\d*\.\d*)', f.read() )[0]) >> getVersion.py
-
-cmd python getVersion.py
+#Get version number
+cmd "echo (Get-Item ""c:\ProgramData\chocolatey\choco.exe"").VersionInfo.ProductVersion >> GetVersion.ps1"
+cmd "powershell -executionpolicy remotesigned -File ""GetVersion.ps1"" "
 var version = $out
+
 
 ###################################
 # Environment Variables
@@ -51,7 +47,6 @@ var version = $out
 workdir c:\
 
 cmd rmdir c:\Workspace /s /q
-cmd rmdir C:\python34 /s /q
 
 
 ###################################
@@ -68,4 +63,4 @@ meta tag=$version
 # Startup File
 ###################################
 
-# startup file ("cmd","/k echo Chocolatey version: ", $version)
+startup file ("cmd","/k echo Chocolatey version: " + $version)
